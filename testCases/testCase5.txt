@@ -1,0 +1,6 @@
+TestId: 5
+Requirement: add handles two negative integers
+Component: Functions
+Method: add
+Input: -10 -10
+Expected Outcome: -20

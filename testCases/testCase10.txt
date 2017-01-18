@@ -1,0 +1,6 @@
+TestId: 10
+Requirement: sub handles negative integers
+Component: Functions
+Method: sub
+Input: -10 -10
+Expected Outcome: 0
