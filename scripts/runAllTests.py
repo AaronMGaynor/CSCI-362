@@ -6,8 +6,12 @@ import webbrowser
 from TestCaseReader import testCaseExtractor
 from outfile import intToText
 from finalReportCreator import createReport
+from cleaner import cleanTemps
+from cleaner import cleanOutput
 
-numberTestCases = input("Enter number of test cases: ")
+cleanTemps()
+cleanOutput()
+numberTestCases = 0
 
 currentworkingdirectory = os.getcwd()
 currentworkingdirectory = currentworkingdirectory.replace('/scripts', '')
@@ -21,6 +25,10 @@ from TestCaseSub import testSub
 from TestCaseFactorial import testFactorial
 
 currentworkingdirectory = currentworkingdirectory.replace('/testCasesExecutables', '')
+
+for file in os.listdir((currentworkingdirectory + '/testCases')):
+	if file.endswith(".txt"):
+		numberTestCases = numberTestCases + 1
 
 for i in range(1, (numberTestCases + 1)):
 	
@@ -62,3 +70,4 @@ for i in range(1, (numberTestCases + 1)):
 #create final report
 reportUrl = createReport(numberTestCases)
 webbrowser.open_new_tab(reportUrl)
+cleanTemps()
